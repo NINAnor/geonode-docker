@@ -39,7 +39,8 @@ jobs:
       with:
         file: ./docker/${{ github.event.inputs.image }}/Dockerfile
         context: "./docker/${{ github.event.inputs.image }}/"
-        tags: ghcr.io/ninanor/geonode_${{ github.event.inputs.image }}:${{ github.event.inputs.tag }}
+        image: ghcr.io/ninanor/geonode_${{ github.event.inputs.image }}
+        tags: ${{ github.event.inputs.tags }}
         push: true
     - name: Final message
       run: echo "Built ${{ github.event.inputs.image }} from branch ${{ github.event.inputs.branch }}"
